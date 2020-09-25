@@ -1,9 +1,24 @@
+var moves = [];
+
+function AddMove(player, points) {
+    moves.push([player, points]);
+}
+
+function Undo() {
+    if (moves.length == 0)
+        return;
+
+    last_move = moves.pop()
+    console.log(last_move);
+    AddPointsToPlayer(last_move[0], -last_move[1]);
+    PrintPoints();
+}
+
 function Reset() {
     ResetItems();
     SetNumberOfPlayers();
     PrintPlayers();
 }
-
 
 function PrintPlayers() {
     var number = parseInt($("#number_of_players_input").val());
@@ -38,19 +53,22 @@ function PrintPoints() {
 }
 
 function drag(ev) {
-    ev.dataTransfer.setData("points", GetPoints(ev.target.id));
-  }
+    ev.dataTransfer.setData("points_index", ev.target.id);
+}
 
-  function allowDrop(ev) {
+function allowDrop(ev) {
     ev.preventDefault();
-  }
+}
 
-  function drop(ev) {
+function drop(ev) {
     ev.preventDefault();
-    var points = parseInt(ev.dataTransfer.getData("points"));
+    console.log(ev.dataTransfer.getData("points_index"))
+    var points = GetPoints(ev.dataTransfer.getData("points_index"));
     var player_id = parseInt(ev.target.id.replace("player_", ""));
+    
+    AddMove(player_id, points);
     AddPointsToPlayer(player_id, points);
     PrintPoints();
-  }
+}
 
 $(document).ready(() => PrintItems());
