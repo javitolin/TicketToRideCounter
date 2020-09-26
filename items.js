@@ -6,7 +6,7 @@ var items = {
     "5 Rail": 10,
     "6 Rail": 15,
     "Longest Road": 10,
-    "Target Road": 0
+    "Target Road": "?"
 };
 
 function ResetItems() {
