@@ -1,0 +1,15 @@
+.item {
+    margin-top: 15px;
+}
+
+.item_selected {
+    font-weight: bold;
+}
+
+.player {
+    margin-top: 15px;
+}
+
+.points {
+    margin-top: 15px;
+}

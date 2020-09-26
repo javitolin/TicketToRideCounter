@@ -6,6 +6,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="logger.js"></script>
   <script src="items.js"></script>
   <script src="players.js"></script>
   <script src="manager.js"></script>
@@ -22,7 +24,7 @@
     <h1>Ticket To Ride Counter</h1>
     <br />
     <input id="number_of_players_input" type="number" value="2">
-    <button type="button" class="btn btn-success" onclick="Reset();">Reset</button>
+    <button type="button" class="btn btn-success" onclick="Reset();">Set Players</button>
     <button type="button" class="btn btn-warning" onclick="Undo();">Undo</button>
 
     <br />
@@ -30,17 +32,21 @@
     <br />
     <div class="container">
       <div class="row">
-        <div class="col-sm">
+        <div class="col-sm-3">
           <strong>Items</strong>
           <div id="items"></div>
         </div>
-        <div class="col-sm">
+        <div class="col-sm-3">
           <strong>Players</strong>
           <div id="players"></div>
         </div>
-        <div class="col-sm">
+        <div class="col-sm-2">
           <strong>Points</strong>
           <div id="points"></div>
+        </div>
+        <div class="col-sm-4">
+          <strong>Logs</strong>
+          <div id="log"></div>
         </div>
       </div>
     </div>
